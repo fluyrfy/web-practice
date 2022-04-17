@@ -1,0 +1,85 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      let uname = "Frank";
+      let age = 20;
+      function add() {
+        return uname + age;
+      }
+      // 使用jsx表達式
+      const el = (
+        <div>
+          <p title={uname}>{uname}</p>
+          <hr />
+          <p>後年的年齡 {age + 2}</p>
+          <p>姓名的大寫形式 {uname.toUpperCase()}</p>
+          <p>調用全局函數 {add()}</p>
+          <p>
+            調用匿名函數
+            {(function () {
+              return 100 + 200;
+            })()}
+          </p>
+          {/*<p>創建對象 {new Date()}</p>} {/*無法使用*/}
+          <p>調用全局對象 {JSON.stringify({ uid: 1 })}</p>
+        </div>
+      );
+      ReactDOM.render(el, app);
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      let uname = "Frank";
+      let age = 20;
+      function add() {
+        return uname + age;
+      }
+      // 使用jsx表達式
+      const el = (
+        <div>
+          <p title={uname}>{uname}</p>
+          <hr />
+          <p>後年的年齡 {age + 2}</p>
+          <p>姓名的大寫形式 {uname.toUpperCase()}</p>
+          <p>調用全局函數 {add()}</p>
+          <p>
+            調用匿名函數
+            {(function () {
+              return 100 + 200;
+            })()}
+          </p>
+          {/*<p>創建對象 {new Date()}</p>} {/*無法使用*/}
+          <p>調用全局對象 {JSON.stringify({ uid: 1 })}</p>
+        </div>
+      );
+      ReactDOM.render(el, app);
+    </script>
+  </body>
+</html>
+>>>>>>> 5bdc84dd5ad320152935e4fedc4d67af63a9e326

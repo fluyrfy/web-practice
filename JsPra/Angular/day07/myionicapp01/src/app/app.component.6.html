@@ -1,0 +1,56 @@
+<ion-app>
+  <ion-content padding>
+    <h3>簡單列表項</h3>
+    <ion-item>
+      <ion-label>Item</ion-label>
+    </ion-item>
+    <ion-item color="danger">
+      <ion-label>Item</ion-label>
+    </ion-item>
+    <ion-item color="warning">
+      <ion-label>Item</ion-label>
+    </ion-item>
+    <ion-item color="success">
+      <ion-label>Item</ion-label>
+    </ion-item>
+    <h3>可點擊的列表項</h3>
+    <ion-item (click)="doClick()">
+      <ion-label>Item</ion-label>
+    </ion-item>
+    <ion-item href="https://www.tmooc.cn">
+      <ion-label>超鏈接列表項</ion-label>
+    </ion-item>
+    <h3>帶詳情指示器的列表項</h3>
+    <ion-item detail="true" href="#">
+      <ion-label>點我看詳情</ion-label>
+    </ion-item>
+    <h3>複雜列表項</h3>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../assets/cardImg.jpg" />
+      </ion-avatar>
+      <ion-label>ask;jdf;asj;dkfj;askjdf</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../assets/1.jpg" />
+      </ion-thumbnail>
+      <ion-label></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail>
+        <img src="../assets/cardImg.jpg" />
+      </ion-thumbnail>
+      <ion-label>Apple Watch 7</ion-label>
+      <ion-button
+        (click)="onClick()"
+        expand="block"
+        fill="clear"
+        shape="round"
+        slot="end"
+      >
+        查看詳情
+      </ion-button>
+    </ion-item>
+  </ion-content>
+</ion-app>

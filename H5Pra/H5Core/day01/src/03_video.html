@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>視頻樣式與事件</h3>
+  <video src="res/[ Crusaders Quest ]老魔女-桃樂絲 _ Colosseum.mp4" id="v3" controls></video>
+</body>
+<script>
+  //功能一:了解視頻三個事件
+  var v3=document.getElementById("v3");
+  v3.volume=0.3;
+  //1.視頻加載成功可以播放 canplaythrough
+  v3.addEventListener("canplaythrough",()=>{
+    console.log("視頻加載結束");
+  })
+  //2.視頻播放結束 ended
+  v3.addEventListener("ended",()=>{
+    console.log("視頻播放結束");
+    console.log("時長:"+v3.duration);//視頻時長
+  })
+  //3.視頻正在播放中 timeupdate
+  v3.addEventListener("timeupdate",()=>{console.log("視頻正在播放中");
+  console.log(v3.currentTime);})
+</script>
+</html>

@@ -1,0 +1,21 @@
+<p>myc05 works!</p><hr>
+<div>用戶名: {{ uname }}</div>
+<div>年齡: {{ age }}</div>
+<div>成年了嗎: {{ age>=18 }}</div>
+<div>成年了嗎: {{ age >= 18 ? '成年' : '未成年' }}</div>
+<div>在法定工作年齡嗎: {{ age >= 18 && age <= 60 }}</div>
+
+<div>用戶名長度: {{ uname.length }}</div>
+<div>用戶名大寫形式: {{ uname.toUpperCase() }}</div>
+<div>用戶名中下標為二的字符: {{ uname[2] }}</div>
+<hr>
+
+<!-- 屬性綁定, 功能相當於vue的v-bind -->
+<p title="{{ uname }}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita excepturi natus aliquam ipsum. Laboriosam nam, obcaecati nobis eius, nihil fugiat minima excepturi officia quaerat atque recusandae. Eos doloribus modi at.</p>
+<p [title]="uname">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, explicabo!</p>
+
+<!-- 事件綁定, 功能相當於vue的v-on -->
+<button (click)="printUname()">輸出用戶名</button> <br><br>
+
+<div [style]="style1"><button (click)="minus()">-</button>{{ quantity }}<button (click)="plus()">+</button></div>
+

@@ -1,0 +1,9 @@
+<!-- 父組件 -->
+<div style="background-color: rgb(67, 87, 12); padding: 15px" >
+  <h1>{{ uname }}的博客</h1>
+  <hr>
+  <!-- 使用第一個子組件 -->
+  <app-myc02-child1-modify (cryEvent)="doCry($event)"></app-myc02-child1-modify>
+  <!-- 使用第二個子組件 -->
+  <app-myc03-child2-photo [child2Name]="uname"></app-myc03-child2-photo>
+</div>

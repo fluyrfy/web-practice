@@ -1,0 +1,115 @@
+@if (true) {
+} @else {
+}
+
+@function get_width($a, $b) {
+  @return min($a, $b);
+}
+div {
+  width: get_width(12px, 25px);
+}
+
+//字符串函數
+p ::after {
+  content: unquote("有一部電影");
+  content: to-upper-case("abc");
+}
+
+//除法
+p {
+  margin: round(4.5px);
+  background: hsl(240, 50%, 50%);
+  color: rgba(22, 33, 55, 0.5) + rgba(22, 33, 55, 0.5); //計算兩個rgba時alpha必須相等
+  color: #112233 + #223344; //三原色各自互+
+  // font-size: 10px/5px; //兩邊必須為變量或函數返回值
+  $width: 1000px;
+  width: $width/2;
+  height: (500px/2);
+  margin-left: 5px+8px/2px;
+  content: "fanfan eat #{200+100} shit"; //插值
+}
+
+//減號的問題
+$my_width: 300px;
+$min_width: 200px;
+p {
+  //因為scss在設計時允續變量名可使用-  因此剪法時不能連在一起
+  width: $my_width - $min_width;
+}
+
+//字符串拼接
+p ::before {
+  //有雙引+無雙引=有雙引  無雙引+有雙引=無雙引
+  content: "Microsoft" + yahei;
+  font-family: A + "rial";
+}
+
+//運算
+$my-width: 5%;
+$my-max-width: $my-width * 2;
+// $other-width: $my-width + 1rem; //兩者不可相加
+$other-width: 2rem + 1rem;
+div {
+  width: $my-max-width;
+  max-width: $other-width;
+}
+
+//繼承
+.my_rounded {
+  border: 1px solid #f00;
+  border-radius: 5px;
+}
+.my_shadow {
+  box-shadow: 0 0 10px;
+  @extend .my_rounded;
+}
+
+//混合器 -- css hack
+@mixin linear_gradiant($color1, $color2) {
+  background: -webkit-linear-gradient(bottom, $color1);
+  background: -o-linear-gradient(bottom, $color2);
+  background: -ms-linear-gradient(bottom, #ff0);
+  background: -moz-linear-gradient(bottom, #ff0);
+}
+
+//混合器
+@mixin my_border($color, $radius, $outline) {
+  border: 1px solid $color;
+  border-radius: $radius;
+  outline: $outline;
+}
+div {
+  width: 100px;
+  @include my_border(#0f0, 50%, 0);
+}
+p {
+  @include my_border(#00f, 20%, 1);
+  @include linear_gradiant(#f00, #aaa);
+}
+
+//導入_color.scss
+@import "color";
+#d1 {
+  color: $text_danger;
+  background: $text_warning;
+}
+
+$jd_red: #f10215; //創建變量
+$normal-width: 100px;
+$before-style: solid !default; //如果前面有人定義 用前面的值 無的話 才用
+$my_border: 1px solid #00f;
+$before-style: $my_border; //可以賦值其他變量
+p {
+  //作用域
+  $my_width: 200px;
+  color: $jd_red;
+  border: $my_border;
+}
+div {
+  background: $jd_red;
+}
+
+h1 {
+  background: $jd_red;
+  border-style: $before-style;
+}

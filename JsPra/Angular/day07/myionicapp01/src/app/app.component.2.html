@@ -1,0 +1,44 @@
+<ion-app>
+  <ion-content class="ion-padding">
+    <h3>輸入框</h3>
+    <input type="text" />
+    <ion-input type="text" placeholder="請輸入用戶名"></ion-input>
+    <ion-input clearInput placeholder="請輸入密碼" type="password"></ion-input>
+    <h3>帶標籤輸入框</h3>
+    <!-- 列表基礎功能 分隔線 -->
+    <ion-item>
+      <ion-label position="fixed"
+        >位置固定標籤<ion-text color="danger">*</ion-text></ion-label
+      >
+      <ion-input required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked"
+        >棧式位置標籤<ion-text color="danger">*</ion-text></ion-label
+      >
+      <ion-input required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">位置浮動的標籤</ion-label
+      ><ion-input type="text" placeholder=""></ion-input>
+    </ion-item>
+    <h3>搜索輸入框</h3>
+    <!-- cancelbutton指的是後退箭頭 -->
+    <ion-searchbar
+      placeholder="輸入查詢內容"
+      inputmode="numeric"
+      type="search"
+      (ionChange)="onSearchChange($event)"
+      [debounce]="250"
+      showCancelButton="always"
+    ></ion-searchbar>
+    <ion-searchbar
+      showCancelButton="never"
+      placeholder="取消按鈕：從不顯示"
+    ></ion-searchbar>
+    <ion-searchbar
+      showCancelButton="focus"
+      placeholder="取消按鈕：獲焦顯示"
+    ></ion-searchbar>
+  </ion-content>
+</ion-app>

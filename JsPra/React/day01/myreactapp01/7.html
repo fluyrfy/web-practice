@@ -1,0 +1,63 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      // 條件渲染 模擬 ngIf
+      // 用戶未登入 顯示請登入
+      // let loggedInUser = "";
+      let loggedInUser = "dingding";
+      function checkLogin() {
+        if (loggedInUser) {
+          return <p>歡迎回來</p>;
+        } else {
+          return <a href="#">請登入</a>;
+        }
+      }
+      let el = <div>{checkLogin()}</div>;
+      ReactDOM.render(el, app);
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      // 條件渲染 模擬 ngIf
+      // 用戶未登入 顯示請登入
+      // let loggedInUser = "";
+      let loggedInUser = "dingding";
+      function checkLogin() {
+        if (loggedInUser) {
+          return <p>歡迎回來</p>;
+        } else {
+          return <a href="#">請登入</a>;
+        }
+      }
+      let el = <div>{checkLogin()}</div>;
+      ReactDOM.render(el, app);
+    </script>
+  </body>
+</html>
+>>>>>>> 5bdc84dd5ad320152935e4fedc4d67af63a9e326

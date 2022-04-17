@@ -1,0 +1,78 @@
+/* 輪播指示器 */
+@media screen and (min-width: 992px) {
+  .carousel-indicators li {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .carousel-indicators li {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    width: 0.25rem;
+    height: 0.25rem;
+  }
+}
+.carousel-indicators li {
+  background: #fff;
+  border-radius: 50%;
+}
+.carousel-indicators li.active {
+  background: #0aa1ed;
+}
+
+/* 輪播左右箭頭 */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 4%;
+  height: 20%;
+  background-color: #aaa;
+  border-radius: 0.25rem;
+  top: 40%;
+}
+
+/* 樓層標題的字體 */
+.title_font {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.title_img_size {
+  width: 3rem;
+}
+.border-bottom {
+  border-width: 3px !important;
+}
+
+/* 樓層高度 */
+.top_height {
+  height: 377px;
+}
+.bottom_height {
+  height: 233px;
+}
+.bg_L {
+  background: #e8e8e8;
+}
+/* 解決外邊距溢出 */
+.before_margin::before {
+  content: "";
+  display: table;
+}
+.w-40 {
+  width: 40%;
+}
+.font24 {
+  font-size: 1.5rem;
+}
+/* 1L上半部分 左側img位置 */
+.my_img_position {
+  margin-top: -200px;
+  margin-right: 10px;
+  transition: all 1s;
+}
+/* 圖片過度終點 */
+.my_img_position:hover {
+  transform: scale(1.1);
+}

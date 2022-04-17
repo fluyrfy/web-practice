@@ -1,0 +1,42 @@
+.mydiv {
+  width: 200px;
+  height: 200px;
+  background: #f00; }
+  .mydiv:hover {
+    background-color: yellow;
+    border-radius: 50%; }
+
+nav a,
+div a,
+h1 a {
+  color: #fff; }
+
+div {
+  border-style: solid;
+  border-width: 10px;
+  border-color: #00f; }
+
+.mybtn {
+  width: 8rem;
+  height: 2.5rem;
+  display: block;
+  background: #0aa1ed;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  text-align: center;
+  line-height: 2.5rem; }
+  .mybtn:hover {
+    color: #f00; }
+
+h3 {
+  color: #f00; }
+
+#content {
+  font-size: 32px; }
+  #content div.top {
+    color: #f00; }
+    #content div.top h1 {
+      border: 1px solid #f00; }
+    #content div.top p {
+      margin: 2px; }

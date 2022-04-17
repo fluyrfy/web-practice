@@ -1,0 +1,43 @@
+<ion-app>
+  <ion-content class="ion-padding">
+    <h3>按鈕</h3>
+    <button type="">HTML按鈕</button>
+    <ion-button color="primary">
+      Ionic 藍色按鈕
+    </ion-button>
+    <ion-button color="secondary">
+      Ionic 青色按鈕
+    </ion-button>
+    <ion-button color="tertiary">
+      Ionic 紫色按鈕
+    </ion-button>
+    <ion-button color="danger">
+      Ionic 紅色按鈕
+    </ion-button>
+    <ion-button color="warning">
+      Ionic 黃色按鈕
+    </ion-button>
+    <ion-button color="success">
+      Ionic 綠色按鈕
+    </ion-button>
+    <ion-button color="dark">
+      Ionic 暗色按鈕
+    </ion-button>
+    <h3>不同大小的按鈕</h3>
+    <ion-button size="large">大</ion-button>
+    <ion-button size="smaill">小</ion-button>
+    <h3>貫穿一行</h3>
+    <ion-button expand="block">塊級</ion-button>
+    <ion-button expand="full">完全寬度</ion-button>
+    <h3>圓形按鈕</h3>
+    <ion-button shape="round">圓形按鈕</ion-button>
+    <h3>帶插槽的按鈕</h3>
+    <ion-button (click)="onClick()">
+      <ion-icon slot="start" name="home"></ion-icon>
+      首頁
+    </ion-button>
+    <ion-button (click)="onClick()">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+  </ion-content>
+</ion-app>

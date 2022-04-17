@@ -1,0 +1,73 @@
+<!-- 首頁頁頭 -->
+<ion-header>
+  <ion-toolbar>
+    <img src="../../assets/logo.png" slot="start" alt="" />
+    <ion-searchbar
+      placeholder="商品搜索"
+      inputmode="decimal"
+      type="decimal"
+      (ionChange)="onSearchChange($event)"
+      [debounce]="250"
+      showCancelButton="focus"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<!-- 首頁主體 -->
+<ion-content>
+  <!-- 輪播廣告 -->
+  <ion-slides mode="ios" pager="ios" scrollbar="ios" #indexSlides>
+    <ion-slide pager="true" *ngFor="let c of carouselItems">
+      <img [src]="url.host + c.img" alt="" />
+    </ion-slide>
+  </ion-slides>
+  <!-- 首頁推薦 -->
+  <ion-item>
+    <img src="../../assets/computer_icon.png" alt="" slot="start" />
+    <ion-label>首頁推薦 / 1F</ion-label>
+  </ion-item>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" *ngFor="let r of recommendedItems">
+        <ion-card>
+          <img [src]="url.host + r.pic" alt="" />
+          <ion-card-header>
+            <ion-card-title>{{ r.title }}</ion-card-title>
+            <ion-card-subtitle>{{ r.details }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label color="primary">{{ r.price | currency: "$" }}</ion-label>
+
+            <ion-button (click)="onClick()"> 查看詳情 </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- 最新上架 -->
+  <!-- 熱銷單品 -->
+  <!-- 底部圖標 -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <div class="ion-text-center">
+          <img src="../../assets/icon1.png" alt="" />
+        </div>
+      </ion-col>
+      <ion-col size="3">
+        <div class="ion-text-center">
+          <img src="../../assets/icon2.png" alt="" />
+        </div>
+      </ion-col>
+      <ion-col size="3">
+        <div class="ion-text-center">
+          <img src="../../assets/icon3.png" alt="" />
+        </div>
+      </ion-col>
+      <ion-col size="3">
+        <div class="ion-text-center">
+          <img src="../../assets/icon4.png" alt="" />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

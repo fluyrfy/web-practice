@@ -1,0 +1,68 @@
+@charset "UTF-8";
+div {
+  width: 12px; }
+
+p ::after {
+  content: 有一部電影;
+  content: "ABC"; }
+
+p {
+  margin: 5px;
+  background: #4040bf;
+  color: rgba(44, 66, 110, 0.5);
+  color: #335577;
+  width: 500px;
+  height: 250px;
+  margin-left: 9px;
+  content: "fanfan eat 300 shit"; }
+
+p {
+  width: 100px; }
+
+p ::before {
+  content: "Microsoftyahei";
+  font-family: Arial; }
+
+div {
+  width: 10%;
+  max-width: 3rem; }
+
+.my_rounded, .my_shadow {
+  border: 1px solid #f00;
+  border-radius: 5px; }
+
+.my_shadow {
+  box-shadow: 0 0 10px; }
+
+div {
+  width: 100px;
+  border: 1px solid #0f0;
+  border-radius: 50%;
+  outline: 0; }
+
+p {
+  border: 1px solid #00f;
+  border-radius: 20%;
+  outline: 1;
+  background: -webkit-linear-gradient(bottom, #f00);
+  background: -o-linear-gradient(bottom, #aaa);
+  background: -ms-linear-gradient(bottom, #ff0);
+  background: -moz-linear-gradient(bottom, #ff0); }
+
+.mycolor1 {
+  background: #123; }
+
+#d1 {
+  color: #f00;
+  background: #ff0; }
+
+p {
+  color: #f10215;
+  border: 1px solid #00f; }
+
+div {
+  background: #f10215; }
+
+h1 {
+  background: #f10215;
+  border-style: 1px solid #00f; }

@@ -1,0 +1,35 @@
+/*新建my-ui文件夹，其中新建my-ui.css*/
+
+/*剪切14_accordion.html开头<style>中的css样式到此*/
+/*手风琴效果的css*/
+.accordion{width:80%; margin:0 auto;}
+.accordion>.title{
+  background:#eee; border:1px soild #aaa;
+  padding:6px; font-size:1.5em; 
+  font-weight:bold; cursor:pointer;
+}
+.accordion>.content{
+  border-left:1px solid #eee;
+  border-right:1px solid #eee;
+}
+.accordion>:last-child{
+  border-bottom:1px solid #eee;
+}
+/*今后，为了避免组件间样式冲突，一个组件内的选择器，都必须统一以这个组件父元素的class名为开头，使用完整查找路径编写选择器。用不同的插件父元素class，区分不同插件中的同名class，避免冲突*/
+.accordion>.content.fade{
+  height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:all .5s linear;
+}
+.accordion>.content.in{
+  height:84px;
+  opacity:1;
+}
+/*下拉列表插件的css*/
+.dropdown>.dropdown-menu.fade{
+  
+}
+.dropdown>.dropdown-menu.in{
+
+}

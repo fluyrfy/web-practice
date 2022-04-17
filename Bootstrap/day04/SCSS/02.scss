@@ -1,0 +1,88 @@
+//嵌套練習
+#main {
+  width: 200px;
+  height: 200px;
+  background: #f00;
+  transition: {
+    property: all;
+    duration: 2s;
+    timing-function: linear;
+  }
+  &:hover {
+    background: #ff0;
+    border-radius: 50%;
+  }
+}
+
+$width: 200px;
+$height: 200px;
+$divbackground: #f00;
+.mydiv {
+  width: $width;
+  height: $height;
+  background: $divbackground;
+  &:hover {
+    background-color: yellow;
+    border-radius: 50%;
+  }
+}
+
+// 群組選擇器的嵌套
+nav,
+div,
+h1 {
+  a {
+    color: #fff;
+  }
+}
+
+//屬性嵌套
+div {
+  border: {
+    style: solid;
+    width: 10px;
+    color: #00f;
+  }
+}
+
+//xz按鈕
+$myblue: #0aa1ed;
+$myfontcolor: #fff;
+$mywidth: 8rem;
+$myheight: 2.5rem;
+.mybtn {
+  width: $mywidth;
+  height: $myheight;
+  display: block;
+  background: $myblue;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  color: $myfontcolor;
+  text-align: center;
+  line-height: 2.5rem;
+  &:hover {
+    //因偽類選擇器不能有空格 需要&符號當佔位符 才不會有空格
+    color: #f00;
+  }
+}
+
+// .mybtn:hover {
+//   color: #f01;
+// }
+
+h3 {
+  color: #f00;
+}
+
+#content {
+  font-size: 32px;
+  div.top {
+    color: #f00;
+    h1 {
+      border: 1px solid #f00;
+    }
+    p {
+      margin: 2px;
+    }
+  }
+}

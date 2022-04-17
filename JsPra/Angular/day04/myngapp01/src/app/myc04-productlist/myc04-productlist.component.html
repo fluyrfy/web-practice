@@ -1,0 +1,19 @@
+<p>myc04-productlist works!</p>
+<table border="1" width="100%">
+  <tbody>
+    <tr>
+      <td colspan="5" *ngIf="productList.length == 0">暫時沒有數據</td>
+    </tr>
+    <tr *ngFor="let p of productList; index as i">
+      <td>{{ p.lid }}</td>
+      <td>{{ p.title }}</td>
+      <td>{{ p.pic }}</td>
+      <td>{{ p.price }}</td>
+      <td>
+        <button>刪除</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button type="" (click)="loadMore()">加載下一頁數據</button>

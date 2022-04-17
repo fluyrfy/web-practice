@@ -1,0 +1,54 @@
+<!-- 商品列表頁頁頭 -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- 新版本用不了 -->
+      <!-- <ion-back-button></ion-back-button> -->
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="商品搜索"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<!-- 商品列表頁的主體 -->
+<ion-content>
+  <!-- 商品列表 -->
+  <ion-card>
+    <ion-item *ngFor="let p of productList" detail="true">
+      <ion-thumbnail slot="start">
+        <img [src]="url.host + p.pic" />
+      </ion-thumbnail>
+      <ion-label>
+        {{ p.title }}
+        <ion-text color="danger">
+          <p>
+            {{ p.price | currency: "$" }}
+          </p>
+        </ion-text>
+      </ion-label>
+      <ion-button slot="end" [routerLink]="'/product-detail/' + p.lid">
+        查看詳情
+      </ion-button>
+    </ion-item>
+  </ion-card>
+  <!-- 無限滾動 -->
+  <ion-infinite-scroll
+    *ngIf="hasMore; else myButton"
+    threshold="25%"
+    position="bottom"
+    (ionInfinite)="loadData()"
+    #myInfiniteScroll
+  >
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="加載中請稍後..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <ng-template #myButton>
+    <ion-button expand="block" disabled="true" *ngIf="!hasMore">
+      沒有更多數據可供加載了
+    </ion-button>
+  </ng-template>
+</ion-content>

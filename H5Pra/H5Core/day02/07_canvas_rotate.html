@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{text-align: center;}
+    canvas{background-color:#ddd;}
+  </style>
+</head>
+<body>
+  <canvas id="c3" width="500" height="400"></canvas>
+  <script>
+    var c3=document.getElementById("c3");
+    var ctx=c3.getContext("2d");
+    //功能：繪製二架小飛機
+    var p3=new Image();
+    p3.src="/day02/res/p3.png";
+    p3.onload=function(){
+      var deg1=0;
+      var deg2=0;
+      var t=setInterval(() => {
+        ctx.clearRect(0,0,500,400);
+        //繪製小飛機1(保存/畫/恢復)
+        ctx.save();//保存畫筆狀態
+        deg1+=15;
+        ctx.translate(100,200);
+        ctx.rotate(deg1*Math.PI/180);
+        ctx.drawImage(p3,-100,-50);
+        ctx.restore();//恢復畫筆狀態
+        //繪製小飛機2(保存/畫/恢復)
+        ctx.save();
+        deg2+=30;
+        ctx.translate(350,200);
+        ctx.rotate(deg2*Math.PI/180);
+        ctx.drawImage(p3,-100,-50);
+        ctx.restore();
+      }, 200);
+    }
+  </script>
+</body>
+</html>

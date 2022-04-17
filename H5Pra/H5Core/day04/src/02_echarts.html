@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echarts</title>
+  <script src="../js/echarts.min.js"></script>
+  <!-- <style>
+    #main{ background : #ddd }
+  </style> -->
+</head>
+<body>
+  <div id="main" style = "width: 800px; height: 600px"></div>
+  <div id="main3" style = "width: 800px; height: 600px; border: 1px solid red;"></div>
+  <div id="main4" style="width: 800px; height: 600px; border:1px solid red"></div>
+  <div id="main5" style="width: 800px; height: 600px; border:1px solid #ddd"></div>
+  <script>
+    // 獲取容器"main"對象
+    var main = document.getElementById("main");
+    //依據main對象來創建echarts對象
+    var mychart = echarts.init(main);
+    //創建配置選項option
+    var option = {
+      title : {text : "入門示範 - 柱狀圖"},
+      xAxis : { data : ["襯衫", "褲子", "鞋子", "大衣" ] },
+      yAxis : { },
+      series : [
+        { type : "bar", data : [ 100, 100, 1, 10 ] },
+        { type : "line", data: [ 100, 100, 1, 10 ] }
+      ] //數據源：圖表類型與數據
+    };
+    mychart.setOption(option);
+    //#############################################
+    var list = [
+      { name: "北京", value: 19000 },
+      { name: "上海", value: 23000 },
+      { name: "杭州", value: 17600 },
+      { name: "廣州", value: 29000 },
+    ];
+    var xlist = [];
+    var datalist = [];
+    for(var item of list){
+      xlist.push(item.name);
+      datalist.push(item.value);
+    }
+    // 獲取容器"main3"對象
+    var main3 = document.getElementById("main3");
+    //創建新echarts對象 mycharts3
+    var mychart3 = echarts.init(main3);
+    // 創建配置選項option
+    var option3 = {
+      title: { text: "各區域銷售統計圖" },
+      xAxis: { data: xlist },
+      yAxis: {},
+      series: [
+        { type: "bar", data: datalist }
+      ]
+    }
+    // 將option3添加mycharts3中
+    mychart3.setOption(option3);
+    //##################################################
+
+    //餅狀圖
+    var main4 = document.getElementById("main4");
+    var mychart4 = echarts.init(main4);
+    var option4 = {
+      title: { text: "圓餅圖範例"},
+      series: [
+        { type: "pie",
+          radius: "50%",
+          center: ["50%", "50%"],
+          data:[{ value:122, name:"js" },
+                { value:121, name:"css" },
+                { value:25, name:"html" },
+          ]
+        },
+      ]
+    };
+    mychart4.setOption(option4);
+    //#########################################################
+
+    // 儀表圖
+    var main5 = document.getElementById("main5");
+    var mychart5 = echarts.init(main5);
+    var option5 = {
+      title: { text: "儀表圖範例"},
+      series: [
+        {
+          name: "圖表一",
+          type: "gauge",
+          detail: { formatter: "{value}%" },//顯示文字
+          data: [
+            { //指針
+              value: 1,
+              name: "計時器"
+            }
+          ]
+        }
+      ]
+    }
+    mychart5.setOption(option5);
+
+    //練習： 每隔100ms修改數據到100停止
+    var t = setInterval(() => {
+      // num ++;
+      option5.series[0].data[0].value ++;
+      mychart5.setOption(option5, true); //更新 為true
+      if(option5.series[0].data[0].value >= 100){
+        clearInterval(t);
+      }
+    }, 1250);
+
+  </script>
+</body>
+</html>
