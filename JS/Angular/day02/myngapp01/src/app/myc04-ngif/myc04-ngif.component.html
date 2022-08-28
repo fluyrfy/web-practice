@@ -1,0 +1,18 @@
+<p>myc04-ngif works!</p>
+<div *ngIf = "age >= 18; else forChildren">
+  此處成年家長查閱
+</div>
+<!-- else呈現的東西必須包裹在模板裡面 除非if else中間無添加任何東西包括註釋-->
+<ng-template #forChildren> <!-- Ang獨有的元素塊編號 -->
+  <div>
+    此處未成年學生觀看
+  </div>
+</ng-template>
+
+<button (click) = noMore() *ngIf = "hasMore; else bottomLine">加載更多</button>
+<ng-template #bottomLine>
+  <div>
+    <hr>已到底線了
+  </div>
+</ng-template>
+

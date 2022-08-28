@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{text-align: center;}
+    canvas{background:#ddd;}
+  </style>
+</head>
+<body>
+  <canvas id="c3" width="500" height="400"></canvas>
+  <script>
+    var c3=document.getElementById("c3");
+    var ctx=c3.getContext("2d");
+    var p3=new Image();
+    p3.src="./res/p3.png";
+    // var rx=Math.floor(Math.random()*250);
+    // var ry=Math.floor(Math.random()*200);
+    ctx.translate(250,200);
+    p3.onload=function(){
+      //ctx.drawImage(p3,0,0);
+      //ctx.rotate(15*Math.PI/180); //旋轉畫筆對象
+      var t=setInterval(()=>{
+        ctx.clearRect(0-250,0-200,500,400);
+        ctx.rotate(-15*Math.PI/180);
+        ctx.drawImage(p3,0-100,0-50); // 旋轉
+      },100)
+
+    }
+  </script>
+</body>
+</html>

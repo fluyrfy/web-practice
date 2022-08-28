@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.alert{
+			border:1px solid #a33;
+			color:#922;
+			background:#fee;
+			padding:10px;
+			width:400px;
+			height:100px;
+			position:fixed;
+			/*让div在窗口中垂直和水平都居中*/
+			box-sizing: border-box;
+			top:50%;
+			left:50%;
+			margin-top:-50px;
+			margin-left:-200px;
+		}
+		.alert>.close{
+			float:right;
+			font-weight:bold;
+			opacity:.5;
+			cursor:pointer;
+		}
+		.alert>.close:hover{opacity:1}
+		.fade{ /*定义淡入淡出动画的初始状态,常驻元素*/
+			/* display:none; */
+			opacity:0;
+			height:100px;
+			width:400px;
+			margin-left:-200px;
+			margin-top:-100px;
+			overflow:hidden;
+			transition: all 1s linear;
+		}
+		.in{ /*定义淡入淡出动画的结束状态*/
+			/* display:block; */
+			opacity:1;
+			height:100px;
+			width:400px;
+			margin-top:-50px;
+			margin-left:-200px;
+		}
+	</style>
+ </head>
+ <body>
+	<button id="btn">click me!</button>
+  <div class="alert fade">
+		<span class="close">×</span>
+		<p>您的浏览器版本太低!请下载最新版本的浏览器</p>
+	</div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+	  //DOM 4步:
+		//1. 查找触发事件的元素
+		//2. 绑定事件处理函数
+		//查找id为btn的按钮
+		$("#btn").click(function(){
+			//3. 查找要修改的元素
+			//查找class为alert的div
+			//4. 修改元素
+			//让其显示: 为其添加in class
+			$("div.alert").addClass("in")
+		})
+
+		//DOM 4步
+		//1. 查找触发事件的元素
+		//2. 绑定事件处理函数
+		//查找class为close的span，为其绑定单击事件
+		$("span.close").click(function(){
+			//3. 查找要修改的元素
+			//查找当前span的爹
+			//4. 修改元素 		
+			//让其隐藏: 去掉爹上的in class
+			$(this).parent()
+						.removeClass("in")
+		})
+	</script>
+ </body>
+</html>

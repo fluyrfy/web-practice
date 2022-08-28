@@ -1,0 +1,81 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      // 自定義組件
+      // function 式組件 一般只用於簡單組件(只有模板)
+      function MyC01() {
+        return <div className="c01">組件01</div>;
+      }
+      // class 式組件 (模板+腳本)
+      class MyC02 extends React.Component {
+        uname = "dindin";
+        render() {
+          // 指定如何渲染當前組件
+          return <div className="c02">組件02-{this.uname}</div>;
+        }
+      }
+      // 創建元素
+      let el = (
+        <div>
+          <MyC01></MyC01>
+          <hr />
+          <MyC02></MyC02>
+        </div>
+      );
+      ReactDOM.render(el, app);
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      // 自定義組件
+      // function 式組件 一般只用於簡單組件(只有模板)
+      function MyC01() {
+        return <div className="c01">組件01</div>;
+      }
+      // class 式組件 (模板+腳本)
+      class MyC02 extends React.Component {
+        uname = "dindin";
+        render() {
+          // 指定如何渲染當前組件
+          return <div className="c02">組件02-{this.uname}</div>;
+        }
+      }
+      // 創建元素
+      let el = (
+        <div>
+          <MyC01></MyC01>
+          <hr />
+          <MyC02></MyC02>
+        </div>
+      );
+      ReactDOM.render(el, app);
+    </script>
+  </body>
+</html>
+>>>>>>> 5bdc84dd5ad320152935e4fedc4d67af63a9e326

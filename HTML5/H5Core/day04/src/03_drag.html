@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>03_drag.html</h3>
+  <img src="../res/垃圾桶 删除.png" alt="" id="trashCan">
+  <hr>
+  <div class="container">
+    <img src="../res/垃圾.png" alt="" id="trash">
+    <img src="../res/厨余垃圾-鱼骨.png" alt="" id="trash2">
+    <img src="../res/其他垃圾-宠物粪便.png" alt="" id="trash3">
+  </div>
+
+  <script>
+    //功能：實現拖動釋放效果
+    //1.獲取目標對象(回收桶)與源對象(垃圾)
+    var trashCan = document.getElementById("trashCan");
+    var trash = document.getElementById("trash");
+    var trash2 = document.getElementById("trash2");
+    var trash3 = document.getElementById("trash3");
+    var pid; //保存要刪除的垃圾id
+    var list = document.querySelectorAll(".container img");
+
+    for (var item of list) {
+      item.ondragstart = function() {
+        pid = this.id;
+        console.log(pid);
+      }
+      item.ondrag = function() {
+
+      }
+      item.ondragend = function() {
+
+      }
+    }
+
+    trashCan.ondragenter = function() {
+      //拖動進入
+    }
+    trashCan.ondragover = function(event) {
+      //拖動懸停
+      event.preventDefault(); //阻止默認行為(自動觸發拖動離開)
+
+    }
+    trashCan.ondragleave = function() {
+      //拖動離開
+    }
+    trashCan.ondrop = function() {
+      //拖動釋放
+      var item = document.getElementById(pid);
+      item.remove();
+    }
+
+    // //源對象:三種事件
+    // trash.ondragstart = function() {
+    //   //拖動開始
+    //   // console.log(1)
+    // }
+    // trash.ondrag = function() {
+    //   //拖動中
+    //   // console.log(2)
+    // }
+    // trash.ondragend = function() {
+    //   //拖動結束
+    //   // console.log(3)
+    // }
+
+    // //目標對象:四種事件
+    // trashCan.ondragenter = function() {
+    //   //拖動進入
+    // }
+    // trashCan.ondragover = function(event) {
+    //   //拖動懸停
+    //   event.preventDefault(); //阻止默認行為(自動觸發拖動離開)
+
+    // }
+    // trashCan.ondragleave = function() {
+    //   //拖動離開
+    // }
+    // trashCan.ondrop = function() {
+    //   //拖動釋放
+    // }
+  </script>
+</body>
+</html>

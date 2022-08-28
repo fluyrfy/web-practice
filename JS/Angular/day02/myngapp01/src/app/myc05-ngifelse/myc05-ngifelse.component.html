@@ -1,0 +1,8 @@
+<p>myc05-ngifelse works!</p>
+
+<button (click) = noMore() *ngIf = "hasMore; else bottomLine">加載更多</button>
+<ng-template #bottomLine>
+  <div>
+    <hr>已到底線了
+  </div>
+</ng-template>

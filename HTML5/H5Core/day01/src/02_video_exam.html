@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 修飾body背景 */
+    body{background-color: #fff;text-align: center;}
+    /* 父元素 */
+    .container{
+      position: relative;
+
+    }
+    /* 按鈕元素 */
+    #ctrl{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -60px;
+      margin-left: -60px;
+    }
+    /* 拉伸按鈕圖片120*120 */
+    #ctrl img{
+      width:120;
+      height:120;
+    }
+    /* 設置廣告樣式 */
+    .ad{
+      position: absolute;
+      width:600px;
+      height:500px;
+      left: 50%;
+      top: 50%;
+      margin-left: -300px;
+      margin-top: -250px;
+      border-radius: 5%;
+      border: gray 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <h3>02_video_exam.html</h3>
+  <!-- 外層父元素 -->
+  <div class="container">
+    <!-- 視頻小區域 -->
+    <video src="./res/[ Crusaders Quest ]老魔女-桃樂絲 _ Colosseum.mp4" id="v3" controls preload="metadata"></video>
+    <!-- 廣告區域 -->
+    <img src="res/CQ.jpg" alt="廣告" class="ad">
+    <!-- 按鈕區域 -->
+    <a href="#" id="ctrl">
+      <img src="res/play.png" alt="">
+    </a>
+  </div>
+</body>
+<script>
+  //為視頻元素綁定鼠標離開與移入事件
+  //1.1 獲取完成此任務所需元素
+  var container=document.querySelector(".container");
+  var ctrl=document.getElementById("ctrl");
+  var img=document.querySelector("#ctrl img");
+  var v3=document.getElementById("v3");
+  var ad=document.querySelector(".ad");
+  //1.2為父元素綁定鼠標移入離開事件
+  //1.3移入顯示 移出隱藏
+  container.onmouseenter=function(){
+    ctrl.style.display="block";
+  }
+  container.onmouseleave=function(){
+    ctrl.style.display="none";
+  }
+  v3.volume=0.5;
+  //為圖片綁定點擊事件
+  //2.1 獲取按鈕元素並且為其綁定點擊事件
+  ctrl.onclick=function(event){
+    //2.2 阻止事件默認行為 a img submit button
+    event.preventDefault();
+    //2.3 播放視頻並且切換圖片
+    if(v3.paused){
+      v3.play();
+      img.src="res/pause.png";
+      ad.style.display="none";
+    }else{
+      v3.pause();
+      img.src="res/play.png";
+      ad.style.display="block"
+    }
+  }
+</script>
+</html>

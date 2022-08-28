@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{text-align:center}
+    canvas{background-color: azure;}
+  </style>
+</head>
+<body>
+  <canvas id="c3" width="500" height="400"></canvas>
+  <script>
+    var c3=document.getElementById("c3");
+    var ctx=c3.getContext("2d");
+    //功能一 將圖片res/p3.png繪製畫布左上角
+    //1.創建圖片對象
+    var p3=new Image();
+    //2.下載圖片
+    p3.src="./res/p3.png"; //需花時間
+    //3.綁定事件下載成功
+    p3.onload=function(){
+      //4.繪製圖片
+      ctx.drawImage(p3,0,0);
+      var w=p3.width;
+      var h=p3.height;
+      // ctx.drawImage(p3,500-w,0);
+      // ctx.drawImage(p3,250,200,10,5)
+      var w1=10;
+      var h1=5;
+      var t=setInterval(()=>{
+        ctx.clearRect(0,0,500,400)
+        w1+=2; //寬度增長高度增長
+        h1+=2;
+        ctx.drawImage(p3,0,400-h,w1,h1)
+        if(w1>=200){clearInterval(t)}
+      },200)
+    }
+  </script>
+</body>
+</html>

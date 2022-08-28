@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<h1>jQueryAPI特点</h1>
+<button>click me(0)</button>
+<button>click me(0)</button>
+<button>click me(0)</button>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+//var btns=document.getElementsByTagName("button");
+var $btns=$("button");
+//自带遍历
+$btns.click(function(){
+  //alert("疼!");
+  //3. 查找要修改的元素
+  var $btnSelf=$(this);
+  var html=$btnSelf.html()
+  var n=parseInt(html.slice(9,-1));
+  n++;
+  $btnSelf.html(`click me(${n})`);
+})
+</script>
+</body>
+</html>

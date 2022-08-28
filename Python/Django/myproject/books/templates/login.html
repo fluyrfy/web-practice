@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/books/login/" method="POST">
+      {% csrf_token %}
+      <table>
+        <tbody>
+          <tr>
+            <td>用戶ID:</td>
+            <td><input type="text" name="userid" /></td>
+          </tr>
+          <tr>
+            <td>密碼:</td>
+            <td><input type="password" name="userpwd" /></td>
+          </tr>
+          <tr>
+            <td><input type="submit" value="確定" /></td>
+            <td><input type="reset" value="取消" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </body>
+</html>

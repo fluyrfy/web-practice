@@ -1,9 +1,0 @@
-<p>myc07-switch works!</p>
-<!-- []綁定的屬於屬性值指令(不改變dom樹)
-*綁定的是結構型指令(會改變dom樹)-->
-<div [ngSwitch] = "userLevel">
-  <p *ngSwitchCase = "'normal'">歡迎您，普通用戶</p>
-  <div *ngSwitchCase = "'vip'">歡迎我們的貴賓歸來</div>
-  <h3 *ngSwitchCase = "'blackgold'">黑金，您好!</h3>
-  <span *ngSwitchDefault>您尚未登入</span>
-</div>
