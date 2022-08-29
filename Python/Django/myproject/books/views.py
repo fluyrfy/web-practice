@@ -1,6 +1,8 @@
+import datetime
 from multiprocessing import context
 from multiprocessing.spawn import import_main_path
 import re
+from urllib import response
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
@@ -128,3 +130,32 @@ def singup(request):
         return render(request, "result.html", {"result": datas})
     else:
         return render(request, "signup.html")
+
+
+# 設置Cookie
+def index(request):
+    response = HttpResponse("<h3>設置Cookie</h3>")
+    # timeoutdate = datetime.datetime.today() + datetime.timedelta(days=10)
+    # response.set_cookie("userid", "tony", expires=timeoutdate)
+    response.set_cookie("userid", "tony", max_age=60)
+    return response
+
+
+# 取出Cookie
+def show_cookie(request):
+    name = request.COOKIES.get("userid")
+    response = HttpResponse("<h3>Cookies中的userid:" + str(name) + "</h3>")
+    return response
+
+
+def login(request):
+    if request.method == "POST":
+        userid = request.POST["userid"]
+        request.session["userid"] = userid
+    return render(request, "result.html")
+
+
+def logout(request):
+    if request.session.has_key("userid"):
+        del request.session["userid"]
+    return render(request, "result.html")

@@ -18,5 +18,6 @@ urlpatterns = [
     path("my-template-view/", views.MyTemplateView.as_view()),
     path("price/<int:price>", views.show_book_price1, name="book_price1"),
     path("login/", views.login),
+    path("show-cookie/", views.show_cookie),
     path("", views.index),
 ]
