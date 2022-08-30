@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>發送信件</title>
+  </head>
+  <body>
+    <form action="/books/sendmail/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <tbody>
+        <tr>
+          <td>收件人:</td>
+          <td>{{ form.to }}</td>
+        </tr>
+        <tr>
+          <td>抄送:</td>
+          <td>{{ form.cc }}</td>
+        </tr>
+        <tr>
+          <td>主題:</td>
+          <td>{{ form.title }}</td>
+        </tr>
+        <tr>
+          <td>郵件內容:</td>
+          <td>{{ form.content }}</td>
+        </tr>
+        <tr>
+          <td>添加附件:</td>
+          <td>{{ form.file }}</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="發送郵件" name="file" />
+          </td>
+        </tr>
+      </tbody>
+    </form>
+  </body>
+</html>

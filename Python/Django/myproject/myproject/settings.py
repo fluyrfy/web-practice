@@ -133,3 +133,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # 設置關閉瀏覽器Session過期
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# 設置email
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PROT = 587
+EMAIL_HOST_USER = "frank880703@gmail.com"
+EMAIL_HOST_PASSWORD = "11111111111111"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

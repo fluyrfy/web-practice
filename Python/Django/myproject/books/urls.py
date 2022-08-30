@@ -20,5 +20,6 @@ urlpatterns = [
     path("login/", views.login),
     path("show-cookie/", views.show_cookie),
     path("upload/", views.upload, name="upload"),
+    path("sendmail/", views.sendmail, name="sendmail"),
     path("", views.index),
 ]

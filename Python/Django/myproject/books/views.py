@@ -1,4 +1,5 @@
 import datetime
+from distutils.command.clean import clean
 from multiprocessing import context
 from multiprocessing.spawn import import_main_path
 import re
@@ -9,7 +10,31 @@ from django.views import View
 from django.views.generic import TemplateView, RedirectView
 from django.shortcuts import redirect
 
-from books.forms import UploadFileForm
+from books.forms import EmailForm, UploadFileForm
+from django.core.mail import EmailMessage
+
+# 發送信件
+def sendmail(request):
+    if request.method == "POST":
+        form = EmailForm(request.POST, request.FILES)
+        if form.is_valid():
+            email = EmailMessage(
+                form.cleaned_data["title"],
+                form.cleaned_data["content"],
+                from_email="frank880703@gmail.com",
+                to=[form.cleaned_data["to"]],
+                cc=[form.cleaned_data["cc"]],
+            )
+            # 添加附件
+            upload_file = request.FILES["file"]
+            email.attach(upload_file.name, upload_file.read(), upload_file.content_type)
+            email.send()
+            return HttpResponse("發送郵件成功")
+
+    else:
+        form = EmailForm()
+    return render(request, "mail.html", {"form": form})
+
 
 # Create your views here.
 # 定義視圖函數
