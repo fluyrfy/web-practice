@@ -9,6 +9,8 @@ from django.views import View
 from django.views.generic import TemplateView, RedirectView
 from django.shortcuts import redirect
 
+from books.forms import UploadFileForm
+
 # Create your views here.
 # 定義視圖函數
 def hello(request):
@@ -159,3 +161,31 @@ def logout(request):
     if request.session.has_key("userid"):
         del request.session["userid"]
     return render(request, "result.html")
+
+
+def show_list(request):
+    # 查詢所有數據
+    list = User.object.all()
+    return render(request, "user_list.html", {"list": list})
+
+
+# def register(request):
+
+
+def upload(request):
+    if request.method == "POST":
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILEST["file"])
+            return HttpResponse("<h5>上傳成功</h5>")
+    else:
+        form = UploadFileForm()
+
+    return render(request, "upload.html", {"form": form})
+
+
+def handle_upload_file(file):
+    path = "upload/" + file.name
+    with open(path, "wb+") as destinaiton:
+        for chunk in file.chunks():
+            destinaiton.write(chunk)

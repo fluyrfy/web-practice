@@ -19,5 +19,6 @@ urlpatterns = [
     path("price/<int:price>", views.show_book_price1, name="book_price1"),
     path("login/", views.login),
     path("show-cookie/", views.show_cookie),
+    path("upload/", views.upload, name="upload"),
     path("", views.index),
 ]
